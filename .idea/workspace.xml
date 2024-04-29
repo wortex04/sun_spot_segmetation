@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1367fc04-9599-4e74-a8d5-b49375ca2f5e" name="Changes" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_model/model_init.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_model/model_init.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u_net_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/u_net_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/main_model/model_init.py" beforeDir="false" afterPath="$PROJECT_DIR$/streamlit/main_model/model_init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/main_model/u_net_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/streamlit/main_model/u_net_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/u_net_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/streamlit/u_net_app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +78,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Desktop\u_net\sun_spot_detection\streamlit" />
       <recent name="C:\Users\Admin\Desktop\u_net\sun_spot_detection\data_example" />
       <recent name="C:\Users\Admin\Desktop\u_net\sun_spot_detection\main_model" />
       <recent name="C:\Users\Admin\Desktop\u_net\sun_spot_detection\jupyters_file" />
@@ -105,7 +107,7 @@
       <workItem from="1712735158998" duration="1669000" />
       <workItem from="1712998797678" duration="21000" />
       <workItem from="1712998845739" duration="2680000" />
-      <workItem from="1714416953371" duration="5370000" />
+      <workItem from="1714416953371" duration="6413000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
