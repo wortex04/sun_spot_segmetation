@@ -1,6 +1,10 @@
 # Нейросеть для нахождения солнечных пятен по фотографии солнца
 (интерфейс и веса в дальнейшем будут обновлены)
 
+
+Ссылка на веб интерфейс:
+https://jsqxxnhtsrr82kph26urbx.streamlit.app/
+
 Скачать веса для модели можно здесь:
 [U-Net for segmentation weights](https://drive.google.com/file/d/1VoDqbgot3o-DGIV1mvL1cDQZAxM-fvGm/view?usp=drive_link)
 
