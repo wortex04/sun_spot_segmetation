@@ -44,7 +44,7 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_background('../data_example/background.jpg')
+set_background('data_example/background.jpg')
 
 st.title("Spot Detection")
 uploaded_file = st.file_uploader("Выберите изображение", type=["jpg", "jpeg", "png"])
