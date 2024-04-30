@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1367fc04-9599-4e74-a8d5-b49375ca2f5e" name="Changes" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streamlit/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_model/u_net_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_model/u_net_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/u_net_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/u_net_app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +105,8 @@
       <workItem from="1712735158998" duration="1669000" />
       <workItem from="1712998797678" duration="21000" />
       <workItem from="1712998845739" duration="2680000" />
-      <workItem from="1714416953371" duration="8396000" />
+      <workItem from="1714416953371" duration="9947000" />
+      <workItem from="1714462148138" duration="2001000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />

@@ -51,18 +51,24 @@ uploaded_file = st.file_uploader("Выберите изображение", type
 status = True
 if uploaded_file is not None:
     image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
+    image = cv2.resize(image, (600, 600))
     st.image(image, caption='Uploaded Image', use_column_width=True)
-    last_uploaded_file = uploaded_file
 
-    # Check if we already have a prediction for this image
-    if 'prediction' not in st.session_state or st.session_state['prediction'] is None:
-        saved_predictions = predict(image.copy())
-        st.session_state['prediction'] = saved_predictions
-    else:
+    # Вычисляем хэш загруженного файла
+    file_hash = uploaded_file.name
+    if 'last_file_hash' not in st.session_state or st.session_state['last_file_hash'] != file_hash:
+        # Файл изменился, выполняем предсказание
+        st.session_state['last_file_hash'] = file_hash
+        st.session_state['prediction'] = predict(image.copy())
         saved_predictions = st.session_state['prediction']
+    else:
+        # Файл не изменился, используем сохраненные предсказания
+        saved_predictions = st.session_state['prediction']
+
     option = st.selectbox("Выберите что показать", ["masked", "mask", "x"])
     col1, col2 = st.columns(2)
     threshold = st.slider("Порог", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+
     with col1:
         st.image(image, caption=f'Uploaded Image', use_column_width=True)
 
@@ -73,9 +79,6 @@ if uploaded_file is not None:
             st.image(saved_predictions[1], caption='Mask', use_column_width=True)
         elif option == "x":
             x = F.softmax(saved_predictions[2])[0].squeeze(0)
-
             mask = np.where(x > threshold, 255, 0)
             mask = np.stack([mask, mask, mask], axis=0).transpose(1, 2, 0)
             st.image(mask, caption='X', use_column_width=True)
-
-

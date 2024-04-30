@@ -57,7 +57,11 @@ class U_Net(nn.Module):
 
         if len(x.shape) == 4:
             x = x[0]
+
         img = x.copy()  #image.shape = [600, 600, 3]
+        if img.shape != (600, 600, 3):
+            # Если размер не совпадает, используем функцию reshape
+            img = cv2.resize(img, (600, 600))
         for i in range(600):
             for j in range(600):
                 if (300 - i) ** 2 + (300 - j) ** 2 > 290 ** 2:
