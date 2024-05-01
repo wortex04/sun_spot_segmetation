@@ -51,42 +51,26 @@ uploaded_file = st.file_uploader("Выберите изображение", type
 # Список предложенных изображений
 default_images = ['sun_example/s_20151217.png', 'sun_example/s_20170809.png', 'sun_example/s_20180309.png']
 
-# Проверяем, было ли выбрано изображение из списка примеров
-image_selected_from_default = st.session_state.get('image_selected_from_default', False)
-
-if uploaded_file is None and not image_selected_from_default:
+if uploaded_file is None:
     default_image_option = st.selectbox("Выберите изображение", default_images)
     image_path = default_image_option
     file_hash = image_path
     image = cv2.imread(image_path)
     image = cv2.resize(image, (600, 600))
     st.image(image, caption='Выбранное изображение', use_column_width=True)
-    st.session_state['default_image_option'] = default_image_option
-    st.session_state['image_selected_from_default'] = True
 else:
-    if not image_selected_from_default:
-        st.session_state['default_image_option'] = None
-    image_selected_from_default = False
-
-    if uploaded_file is not None:
-        image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), 1)
-        image = cv2.resize(image, (600, 600))
-        file_hash = uploaded_file.name
-        st.image(image, caption='Загруженное изображение', use_column_width=True)
-    else:
-        # Используем сохраненное изображение по умолчанию
-        default_image_option = st.session_state.get('default_image_option')
-        image_path = default_image_option
-        image = cv2.imread(image_path)
-        image = cv2.resize(image, (600, 600))
-        st.image(image, caption='Выбранное изображение', use_column_width=True)
-        file_hash = image_path
+    image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), 1)
+    image = cv2.resize(image, (600, 600))
+    file_hash = uploaded_file.name
+    st.image(image, caption='Загруженное изображение', use_column_width=True)
 
 if 'last_file_hash' not in st.session_state or st.session_state['last_file_hash'] != file_hash:
+    # Файл изменился, выполняем предсказание
     st.session_state['last_file_hash'] = file_hash
     st.session_state['prediction'] = predict(image.copy())
     saved_predictions = st.session_state['prediction']
 else:
+    # Файл не изменился, используем сохраненные предсказания
     saved_predictions = st.session_state['prediction']
 
 option = st.selectbox("Выберите что показать", ["masked", "mask", "x"])
